@@ -1,6 +1,6 @@
 {
   "name": "@ironbay/react-scripts-legos",
-  "version": "2.9.3",
+  "version": "2.9.4",
   "description": "Configuration and scripts for Create React App.",
   "repository": "wmonk/create-react-app",
   "license": "MIT",
@@ -61,11 +61,11 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
     "webpack-manifest-plugin": "1.3.2",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "@ironbay/kora": "^2.4.4",
+    "classnames": "^2.2.5"
   },
   "devDependencies": {
-    "@ironbay/kora": "^2.4.4",
-    "classnames": "^2.2.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0"
