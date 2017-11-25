@@ -1,6 +1,6 @@
 {
   "name": "@ironbay/react-scripts-legos",
-  "version": "2.9.4",
+  "version": "2.9.5",
   "description": "Configuration and scripts for Create React App.",
   "repository": "wmonk/create-react-app",
   "license": "MIT",
@@ -66,6 +66,7 @@
     "classnames": "^2.2.5"
   },
   "devDependencies": {
+    "moment": "^2.19.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0"
