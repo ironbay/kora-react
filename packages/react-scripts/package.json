@@ -64,6 +64,8 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "@ironbay/kora": "^2.4.4",
+    "classnames": "^2.2.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0"
