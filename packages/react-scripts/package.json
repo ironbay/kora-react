@@ -1,5 +1,5 @@
 {
-  "name": "react-scripts-ts",
+  "name": "@ironbay/react-scripts-legos",
   "version": "2.9.0",
   "description": "Configuration and scripts for Create React App.",
   "repository": "wmonk/create-react-app",
@@ -21,6 +21,7 @@
     "react-scripts-ts": "./bin/react-scripts-ts.js"
   },
   "dependencies": {
+    "@ironbay/legos": "github:ironbay/legos",
     "@types/react-router-dom": "^4.2.2",
     "@types/webpack-env": "^1.13.2",
     "autoprefixer": "7.1.6",
