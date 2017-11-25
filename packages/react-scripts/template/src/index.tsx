@@ -1,11 +1,26 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import Routes from './routes'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
-);
-registerServiceWorker();
+const element = document.getElementById('root')
+const render = Component => {
+	ReactDOM.render(
+		<AppContainer>
+			<Component />
+		</AppContainer>
+	, element)
+}
+render(Routes)
+if (module.hot) {
+		module.hot.accept('./routes', () => {
+			const NextApp = require('./routes').default
+			ReactDOM.render(
+				<AppContainer>
+					<NextApp />
+				</AppContainer>
+			,
+			element,
+		)
+	})
+}
