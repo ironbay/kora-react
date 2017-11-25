@@ -9,7 +9,10 @@ export function Icon(props) {
 	const { src, ...rest } = props
 	return (
 		<Container pointer {...rest}>
-			<Image width={18} src={`https://feathericons.com/node_modules/feather-icons/dist/icons/${src}.svg`} />
+			<Image
+				style={{verticalAlign: 'top'}}
+				width={18}
+				src={`https://feathericons.com/node_modules/feather-icons/dist/icons/${src}.svg`} />
 		</Container>
 	)
 }

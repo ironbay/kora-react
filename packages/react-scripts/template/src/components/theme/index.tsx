@@ -41,6 +41,8 @@ const properties = Object.keys({
 	'bg-red': true,
 	'bg-lightgray': true,
 	'bg-highlight': true,
+	'bg-white': true,
+	'bg-black': true,
 
 	'fg-purple': true,
 	'fg-blue': true,

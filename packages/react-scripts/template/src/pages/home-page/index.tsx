@@ -6,7 +6,7 @@ import * as Form from '../../components/form'
 
 interface Form {
 	name?: string
-	email?: string
+	state?: string
 	password?: string
 	time?: number
 }
@@ -22,7 +22,7 @@ export default class HomePage extends React.Component<any, State> {
 		this.state = {
 			form: {
 				name: '',
-				email: '',
+				state: '',
 				password: '',
 				time: new Date().getTime()
 			}
@@ -63,13 +63,15 @@ export default class HomePage extends React.Component<any, State> {
 								placeholder="Name"
 							/>
 						</Form.Block>
-						<Form.Block border-b1>
-							<Form.Label>Email Address</Form.Label>
-							<Form.Input
-								fg-red={form.email && !Form.Validators.email(form.email)}
-								value={form.email || ''}
-								onChange={this.editor.handle(['email'])}
-								placeholder="Email"
+						<Form.Block border-b1 relative style={{zIndex: 10000}}>
+							<Form.Label>State</Form.Label>
+							<Form.Autocomplete
+								options={{
+									nj: 'New Jersey'
+								}}
+								value={form.state || ''}
+								onChange={value => this.editor.merge(['state'], value)}
+								placeholder="State"
 							/>
 						</Form.Block>
 					</Container>
@@ -85,7 +87,7 @@ export default class HomePage extends React.Component<any, State> {
 							<Form.Label>Time</Form.Label>
 							<Form.Time
 								value={form.time || new Date().getTime()}
-								onChange={this.editor.handle(['time'])}
+								onChange={value => this.editor.merge(['time'], value)}
 								placeholder="Time"
 							/>
 						</Form.Block>
@@ -93,7 +95,7 @@ export default class HomePage extends React.Component<any, State> {
 							<Form.Label>Date</Form.Label>
 							<Form.Date
 								value={form.time || 0}
-								onChange={this.editor.handle(['time'])}
+								onChange={value => this.editor.merge(['time'], value)}
 								placeholder="Date"
 							/>
 						</Form.Block>

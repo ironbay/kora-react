@@ -8,7 +8,7 @@ import * as Form from './index'
 
 interface Props {
 	value: number,
-	onChange: any,
+	onChange: (value: number) => void,
 	[key: string]: any
 }
 
@@ -34,7 +34,7 @@ export default class Date extends React.Component<Props, any> {
 					<Form.Input
 						fg-red={this.state.value}
 						value={this.state.value === false ? ts.format(DISPLAY_FORMAT) : this.state.value}
-						onChange={this.handle_change}
+						onChange={e => this.handle_change(e.target.value)}
 						disabled={disabled}
 						{...rest} />
 					{!disabled && !focus && <Icon src="calendar" onClick={() => this.handle_focus(!focus)} />}
@@ -93,16 +93,16 @@ export default class Date extends React.Component<Props, any> {
 									<Container
 										mgn-b1
 										hide={disabled}
-										weight-5={active}
-										fg-highlight={active}>
+										weight-6={active}
+										fg-blue={active}>
 										{item.format('DD')}
 									</Container>
 									<Container
 										hide={disabled}
 										size-3
 										weight-3
-										fg-highlight={active}
-										weight-5={active}>{item.format('ddd')}
+										fg-blue={active}
+										weight-6={active}>{item.format('ddd')}
 									</Container>
 								</Container>
 							)
@@ -113,29 +113,18 @@ export default class Date extends React.Component<Props, any> {
 		)
 	}
 	handle_date = (value: moment.Moment, hide = false) => {
-		this.handle_change({
-			target: {
-				value: value.format(FORMAT)
-			}
-		})
+		this.handle_change(value.format(FORMAT))
 	}
 	handle_focus = value => {
 		this.setState({
 			focus: value,
 		})
 	}
-	handle_change = e => {
-		const input = e.target.value as string
-
+	handle_change = (input: string) => {
 		const { value } = this.props
 		const result = this.parse(input)
 		if (result) {
-			const payload = {
-				target: {
-					value: this.set_date(value, result).toDate().getTime()
-				}
-			}
-			this.props.onChange(payload)
+			this.props.onChange(this.set_date(value, result).toDate().getTime())
 			this.setState({
 				value: false,
 			})

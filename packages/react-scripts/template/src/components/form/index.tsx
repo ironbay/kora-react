@@ -5,6 +5,7 @@ import { Container } from '../container'
 export { default as Editor } from './editor'
 export { default as Time } from './time'
 export { default as Date } from './date'
+export { default as Autocomplete } from './autocomplete'
 import * as validators from './validators'
 export const Validators = validators
 

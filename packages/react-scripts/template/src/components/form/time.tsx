@@ -8,12 +8,11 @@ import * as Validators from './validators'
 
 interface Props {
 	value: number,
-	onChange: any,
+	onChange: (input: number) => void,
 	[key: string]: any
 }
 
 const RANGE = 5
-
 const DISPLAY_FORMAT = 'hh:mma'
 
 export default class Time extends React.Component<Props, any> {
@@ -48,15 +47,16 @@ export default class Time extends React.Component<Props, any> {
 		const parsed = moment(this.state.input, DISPLAY_FORMAT)
 		const value = moment(this.props.value)
 		const next = parsed.isValid() ? parsed : value
-		this.props.onChange({
-			target: {
-				value: value.set({
-					hour: next.hour(),
-					minute: next.minute(),
-					second: next.second(),
-				}).toDate().getTime()
-			}
-		})
+		this.props.onChange(
+			value
+			.set({
+				hour: next.hour(),
+				minute: next.minute(),
+				second: next.second(),
+			})
+			.toDate()
+			.getTime()
+		)
 		this.setState({
 			input: false
 		})
