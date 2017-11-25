@@ -23,6 +23,18 @@ interface GridProps {
 }
 
 export class Grid extends React.Component<{[key: string]: any} & GridProps, any> {
+	private static chunk<T>(input: T[], chunk: number) {
+		const result = []
+		for (let i = 0; i < input.length; i += chunk) {
+			const current = []
+			for (let n = 0; n < chunk; n++) {
+				current[n] = input[n + i]
+			}
+			result.push(current)
+		}
+		return result
+	}
+
 	render() {
 		const { columns, children, responsive, flush, ...rest } = this.props
 		return (
@@ -34,9 +46,9 @@ export class Grid extends React.Component<{[key: string]: any} & GridProps, any>
 					return (
 						<Container s-flex key={index} >
 						{
-							items.map((item, index: number) => (
+							items.map((item, inner: number) => (
 								<Container
-									key={index}
+									key={inner}
 									flex-column
 									style={flush ? {} : { padding: '1rem 0 0 1rem'}}
 									flex>
@@ -52,15 +64,4 @@ export class Grid extends React.Component<{[key: string]: any} & GridProps, any>
 		)
 	}
 
-	private static chunk<T>(input: T[], chunk: number) {
-		const result = []
-		for (let i = 0; i < input.length; i+=chunk) {
-			const current = []
-			for (let n = 0; n < chunk; n++) {
-				current[n] = input[n + i]
-			}
-			result.push(current)
-		}
-		return result
-	}
 }

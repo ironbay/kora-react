@@ -6,7 +6,7 @@ import { Container } from '../container'
 import * as Form from './index'
 import * as Validators from './validators'
 
-interface IProps {
+interface Props {
 	value: number,
 	onChange: any,
 	[key: string]: any
@@ -16,7 +16,7 @@ const RANGE = 5
 
 const DISPLAY_FORMAT = 'hh:mma'
 
-export default class Time extends React.Component<IProps, any> {
+export default class Time extends React.Component<Props, any> {
 	private editing: any
 	constructor(props) {
 		super(props)

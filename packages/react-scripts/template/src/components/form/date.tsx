@@ -6,19 +6,17 @@ import { Container, Grid } from '../container'
 import { Icon } from '../image'
 import * as Form from './index'
 
-interface IProps {
+interface Props {
 	value: number,
 	onChange: any,
 	[key: string]: any
 }
 
 const RANGE = 5
-
 const FORMAT = 'M/D/YYYY'
-
 const DISPLAY_FORMAT = 'MM/DD/YYYY'
 
-export default class Date extends React.Component<IProps, any> {
+export default class Date extends React.Component<Props, any> {
 	constructor(props, context) {
 		super(props, context)
 		this.state = {
@@ -39,14 +37,14 @@ export default class Date extends React.Component<IProps, any> {
 						onChange={this.handle_change}
 						disabled={disabled}
 						{...rest} />
-					{!disabled && !focus && <Icon src='calendar' onClick={() => this.handle_focus(!focus)} />}
-					{!disabled && focus && <Icon src='chevron-down' onClick={() => this.handle_focus(!focus)} />}
+					{!disabled && !focus && <Icon src="calendar" onClick={() => this.handle_focus(!focus)} />}
+					{!disabled && focus && <Icon src="chevron-down" onClick={() => this.handle_focus(!focus)} />}
 				</Container>
-				{ focus && this.render_dropdown(ts) }
+				{focus && this.render_dropdown(ts)}
 			</Container>
 		)
 	}
-	private render_dropdown(ts: moment.Moment) {
+	render_dropdown(ts: moment.Moment) {
 		const start = ts.clone().startOf('month')
 		const end = ts.clone().endOf('month')
 		const days = [] as Array<moment.Moment>
@@ -114,14 +112,14 @@ export default class Date extends React.Component<IProps, any> {
 			</Container>
 		)
 	}
-	private handle_date = (value: moment.Moment, hide = false) => {
+	handle_date = (value: moment.Moment, hide = false) => {
 		this.handle_change({
 			target: {
 				value: value.format(FORMAT)
 			}
 		})
 	}
-	private handle_focus = value => {
+	handle_focus = value => {
 		this.setState({
 			focus: value,
 		})
@@ -172,5 +170,5 @@ export default class Date extends React.Component<IProps, any> {
 }
 
 function Arrow({ flip, ...rest }) {
-	return <Container pointer {...rest} align-center pad-h5 >{flip ? '→' : '←' }</Container>
+	return <Container pointer {...rest} align-center pad-h5 >{flip ? '→' : '←'}</Container>
 }

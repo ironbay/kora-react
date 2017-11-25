@@ -12,7 +12,7 @@
             true,
             "check-space"
         ],
-        "curly": true,
+        "curly": false,
         "eofline": false,
         "forin": true,
         "indent": [ true, "tab" ],
@@ -20,10 +20,12 @@
         "jsdoc-format": true,
         "jsx-no-lambda": false,
         "jsx-no-multiline-js": false,
+        "jsx-boolean-value": false,
+        "jsx-alignment": false,
         "label-position": true,
         "max-line-length": [ true, 120 ],
         "member-ordering": [
-            true,
+            false,
             "public-before-private",
             "static-before-instance",
             "variables-before-functions"
@@ -45,7 +47,7 @@
         "no-construct": true,
         "no-debugger": true,
         "no-duplicate-variable": true,
-        "no-empty": true,
+        "no-empty": false,
         "no-eval": true,
         "no-shadowed-variable": true,
         "no-string-literal": true,
@@ -69,7 +71,7 @@
 
         "triple-equals": [ true, "allow-null-check" ],
         "typedef": [
-            true,
+            false,
             "parameter",
             "property-declaration"
         ],
@@ -83,7 +85,7 @@
                 "variable-declaration": "nospace"
             }
         ],
-        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+        "variable-name": [false, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
         "whitespace": [
             true,
             "check-branch",

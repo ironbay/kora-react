@@ -4,18 +4,19 @@ import * as React from 'react'
 import { Grid, Container, Wrap } from '../../components/container'
 import * as Form from '../../components/form'
 
-interface IForm {
+interface Form {
 	name?: string
 	email?: string
 	password?: string
 	time?: number
 }
 
-interface IState {
-	form: IForm
+interface State {
+	form: Form
 }
 
-export default class HomePage extends React.Component<any, IState> {
+export default class HomePage extends React.Component<any, State> {
+	private editor: Form.Editor<Form> = new Form.Editor<Form>(this, ['form'])
 	constructor(props, context) {
 		super(props, context)
 		this.state = {
@@ -26,9 +27,6 @@ export default class HomePage extends React.Component<any, IState> {
 				time: new Date().getTime()
 			}
 		}
-	}
-	private editor: Form.Editor<IForm> = new Form.Editor<IForm>(this, ['form'])
-	componentDidMount() {
 	}
 	render() {
 		const { form } = this.state
@@ -62,7 +60,7 @@ export default class HomePage extends React.Component<any, IState> {
 							<Form.Input
 								value={form.name || ''}
 								onChange={this.editor.handle(['name'])}
-								placeholder='Name'
+								placeholder="Name"
 							/>
 						</Form.Block>
 						<Form.Block border-b1>
@@ -71,7 +69,7 @@ export default class HomePage extends React.Component<any, IState> {
 								fg-red={form.email && !Form.Validators.email(form.email)}
 								value={form.email || ''}
 								onChange={this.editor.handle(['email'])}
-								placeholder='Email'
+								placeholder="Email"
 							/>
 						</Form.Block>
 					</Container>
@@ -79,8 +77,8 @@ export default class HomePage extends React.Component<any, IState> {
 						<Form.Block border-b1 border-r1>
 							<Form.Label>Password</Form.Label>
 							<Form.Input
-								type='password'
-								placeholder='Password'
+								type="password"
+								placeholder="Password"
 							/>
 						</Form.Block>
 						<Form.Block border-b1 border-r1 >
@@ -88,7 +86,7 @@ export default class HomePage extends React.Component<any, IState> {
 							<Form.Time
 								value={form.time || new Date().getTime()}
 								onChange={this.editor.handle(['time'])}
-								placeholder='Time'
+								placeholder="Time"
 							/>
 						</Form.Block>
 						<Form.Block border-b1 relative>
@@ -96,7 +94,7 @@ export default class HomePage extends React.Component<any, IState> {
 							<Form.Date
 								value={form.time || 0}
 								onChange={this.editor.handle(['time'])}
-								placeholder='Date'
+								placeholder="Date"
 							/>
 						</Form.Block>
 					</Container>
