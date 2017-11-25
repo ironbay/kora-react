@@ -1,6 +1,6 @@
 {
   "name": "@ironbay/react-scripts-legos",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "description": "Configuration and scripts for Create React App.",
   "repository": "wmonk/create-react-app",
   "license": "MIT",
