@@ -33,5 +33,8 @@
     "yarn.lock": [
       "git rm --cached"
     ]
+  },
+  "dependencies": {
+    "@ironbay/kora": "^2.4.4"
   }
 }
